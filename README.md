@@ -33,7 +33,7 @@ import asyncio
 
 async def main():
     async with aiohttp.ClientSession() as session:
-        async with session.get('http://ammarsysdev.pythonanywhere.com/api/img') as responseget:
+        async with session.get('ammarsysdev.pythonanywhere.com/api/img') as responseget:
             return await responseget.json()
 
 loop = asyncio.get_event_loop()

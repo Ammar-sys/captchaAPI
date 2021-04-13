@@ -20,7 +20,7 @@ Simply make a HTTP get request to the API endpoint and treat it like a JSON.
 ```python
 import requests
 
-response = requests.get('ammarsysdev.pythonanywhere/api/img').json()
+response = requests.get('https://ammarsysdev.pythonanywhere/api/img').json()
 
 print(response["solution"], response["url"])
 ```
@@ -33,7 +33,7 @@ import asyncio
 
 async def main():
     async with aiohttp.ClientSession() as session:
-        async with session.get('ammarsysdev.pythonanywhere.com/api/img') as responseget:
+        async with session.get('https://ammarsysdev.pythonanywhere.com/api/img') as responseget:
             return await responseget.json()
 
 loop = asyncio.get_event_loop()

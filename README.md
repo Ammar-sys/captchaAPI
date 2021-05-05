@@ -4,7 +4,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 ## Info
-I made this API so I can use it alongside [Essentials Discord Bot](https://github.com/Ammar-sys/essentials) and I've decided to make it public (open source). The API is live at [PythonAnywhere](https://pythonanywhere.com/) (specifically, https://ammarsysdev.pythonanywhere.com/). Tell us [here](https://github.com/Ammar-sys/captchaAPI/issues) if you run into issues, discord works as well. (ammar#0443)
+The API is live at [PythonAnywhere](https://pythonanywhere.com/) (specifically, https://ammarsysdev.pythonanywhere.com/). Tell us [here](https://github.com/Ammar-sys/captchaAPI/issues) if you run into issues, discord works as well. (ammar#1197)
 
 ## USAGE
 
@@ -41,8 +41,5 @@ response = loop.run_until_complete(main())
 print(response["solution"], response["url"])
 ```
 
-*(check examples folder for a javascript example)*
-
-This API is intended for discord bots, but it can be used for web development for a example, soon i'll release a *good* example (note you have to implement it yourself).
-
+For more examples check out https://ammarsysdev.pythonanywhere.com/examples !
 This version is a new, fast and completely rewritten API, originally by Vixen, which was discontinued.

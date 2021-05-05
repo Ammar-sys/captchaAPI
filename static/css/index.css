@@ -1,0 +1,30 @@
+	body {
+    		text-align: center;
+    		font-family: 'Source Sans Pro', sans-serif;
+    		color: #fff;
+    		background-color: #181a1b;
+		}
+        .main {
+            position: fixed;
+            top: 5%;
+            left: 20%;
+            width: 60%;
+        }
+
+        .box {
+            width: 96%;
+            margin-top:10px;
+            border: 1px solid #2a2e30;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 5px;
+		}
+
+        .quote {
+            font-family: 'Indie Flower', cursive;
+            font-size: 20px;
+        }
+
+        hr {
+            border-color: #515353
+        }

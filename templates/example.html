@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+    ⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿
+    ⣿⣿⣿⣿⣿⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿
+    ⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣴⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢰⣹⡆⠀⠀⠀⠀⠀⠀⣭⣷⠀⠀⠀⠸⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠈⠉⠀⠀⠤⠄⠀⠀⠀⠉⠁⠀⠀⠀⠀⢿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⢾⣿⣷⠀⠀⠀⠀⡠⠤⢄⠀⠀⠀⠠⣿⣿⣷⠀⢸⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿
+
+    This is the place where we're supposed to say we hire, but we actually don't.
+
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <meta property="og:site_name" content="BetterCaptcha">
+	<meta property="og:url" content="https://bettercaptcha.netlify.app/">
+	<meta property="og:title" content="BetterCaptcha Auth Systems">
+	<meta property="og:description" content="My goal is to provide a no bullshit authentication solution for Discord servers and its members.">
+	<meta property="og:type" content="website">
+	<meta name="og:image" itemprop="image" content="https://bettercaptcha.netlify.app/assets/images/reCaptcha-transparent.png">
+	<meta name="theme-color" content="#0000FF">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/examples.css') }}">
+    <title>CAPTCHA API</title>
+</head>
+<body>
+    <script>
+        function mouseOver(btn) {
+            let element = document.getElementById(`${btn}`)
+            element.style.color = "#87898a";
+            element.style.background = "#1b1e1f";
+        }
+
+        function mouseOut(btn) {
+		    let element = document.getElementById(`${btn}`)
+            element.style.color = "#fff";
+            element.style.background = "#212529";
+        }
+
+        function red(toWhere) {
+            window.location.replace(`${toWhere}`)
+        }
+    </script>
+    <div class="main">
+        <div class="box">
+            <button type="button" style="width: 60%;" class="btn btn-dark" id='dpy'
+                    onmouseover="mouseOver('dpy')" onmouseout="mouseOut('dpy')" onclick="
+                    red('https://paste.gg/p/anonymous/aae01d196d8a4ecf8023b9ec0115161f')">
+                discord.py</button>
+            <br><br>
+            <button type="button" style="width: 60%;" class="btn btn-dark" id='js'
+                    onmouseover="mouseOver('js')" onmouseout="mouseOut('js')" onclick="
+                    red('https://paste.gg/p/anonymous/61dbea892ba64cfdbd11aae18094a9d1')">
+                raw js (not secure)</button>
+            <br><br>
+            <button type="button" style="width: 60%;" class="btn btn-dark" id='jf'
+                    onmouseover="mouseOver('jf')" onmouseout="mouseOut('jf')" onclick="
+                    red('https://paste.gg/p/anonymous/a8cfbf7b8e124cbbad1b8fb73892309d')">
+                vanilla js + backend flask</button>
+            <br><br>
+        </div>
+    </div>
+</body>
+</html>

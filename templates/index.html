@@ -1,102 +1,53 @@
 <!DOCTYPE html>
-<!--
-    ⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⣠⣤⣶⣶
-    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⢰⣿⣿⣿⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣀⣾⣿⣿⣿⣿
-    ⣿⣿⣿⣿⣿⡏⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿
-    ⣿⣿⣿⣿⣿⣿⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠉⠁⠀⣿
-    ⣿⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠙⠿⠿⠿⠻⠿⠿⠟⠿⠛⠉⠀⠀⠀⠀⠀⣸⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣴⣿⣿⣿⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢰⣹⡆⠀⠀⠀⠀⠀⠀⣭⣷⠀⠀⠀⠸⣿⣿⣿⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠈⠉⠀⠀⠤⠄⠀⠀⠀⠉⠁⠀⠀⠀⠀⢿⣿⣿⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣿⢾⣿⣷⠀⠀⠀⠀⡠⠤⢄⠀⠀⠀⠠⣿⣿⣷⠀⢸⣿⣿⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣿⡀⠉⠀⠀⠀⠀⠀⢄⠀⢀⠀⠀⠀⠀⠉⠉⠁⠀⠀⣿⣿⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿
-    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿
-
-    This is the place where we're supposed to say we hire, but we actually don't.
-
--->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <meta property="og:site_name" content="BetterCaptcha">
-	<meta property="og:url" content="https://bettercaptcha.netlify.app/">
-	<meta property="og:title" content="BetterCaptcha Auth Systems">
-	<meta property="og:description" content="My goal is to provide a no bullshit authentication solution for Discord servers and its members.">
-	<meta property="og:type" content="website">
-	<meta name="og:image" itemprop="image" content="https://bettercaptcha.netlify.app/assets/images/reCaptcha-transparent.png">
-	<meta name="theme-color" content="#0000FF">
+    <script src="https://kit.fontawesome.com/1d02673a32.js" crossorigin="anonymous"></script>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/index.css') }}">
-    <title>CAPTCHA API</title>
+    <meta property="og:site_name" content="CAPTCHA API">
+	<meta property="og:title" content="Auth Systems">
+	<meta property="og:description" content="An simple to use CAPTCHA API made in Flask">
+	<meta property="og:type" content="website">
+	<meta name="theme-color" content="#0000FF">
+    <title>Captcha API</title>
 </head>
 <body>
     <script>
-        function mouseOver(btn) {
-            let element = document.getElementById(`${btn}`)
-            element.style.color = "#87898a";
-            element.style.background = "#1b1e1f";
-        }
 
-        function mouseOut(btn) {
-		    let element = document.getElementById(`${btn}`)
-            element.style.color = "#fff";
-            element.style.background = "#212529";
-        }
-
-        function examples() {
-            window.location.replace('/docs')
-        }
-
-        function supportserver() {
-            window.location.replace('https://discord.gg/gngRDu5q')
-        }
-
-        function gt() {
-            window.location.replace('https://github.com/ammarsys/captchaAPI')
-        }
-
-        function ex() {
-            window.location.replace('/examples')
-        }
-
-        function me() {
-            window.location.replace('/api/img')
+        function goTo(place) {
+            window.location.replace(`${place}`)
         }
 
     </script>
     <div class="main">
-        <h1>CAPTCHA API</h1>
-        <hr>
-        <p class="quote">"An simple to use CAPTCHA API made in Flask"</p>
-        <br>
-        <div class="box">
-            <button type="button" style="width: 60%;" class="btn btn-dark" id='invbtn'
-                    onmouseover="mouseOver('invbtn')" onmouseout="mouseOut('invbtn')" onclick="examples()">
-                Documentations</button>
-            <br><br>
-            <button type="button" style="width: 60%;" class="btn btn-dark" id='sprtbtn'
-                    onmouseover="mouseOver('sprtbtn')" onmouseout="mouseOut('sprtbtn')" onclick="supportserver()">
-                Support Server</button>
-            <br><br>
-            <button type="button" style="width: 60%;" class="btn btn-dark" id='gt'
-                    onmouseover="mouseOver('gt')" onmouseout="mouseOut('gt')" onclick="gt()">
-                Github</button>
-            <br><br>
-            <button type="button" style="width: 60%;" class="btn btn-dark" id='ex'
-                    onmouseover="mouseOver('ex')" onmouseout="mouseOut('ex')" onclick="ex()">
-                Examples</button>
-            <br><br>
-            <button type="button" style="width: 60%;" class="btn btn-dark" id='me'
-                    onmouseover="mouseOver('me')" onmouseout="mouseOut('me')" onclick="me()">
-                Main Endpoint</button>
-            <br><br>
+
+        <div class="icons">
+            <div class="lefticons">
+                <button onclick="goTo('https://discord.gg/Fh5gmXQ')" type="button" class="btn btn-dark" style="width: 50px; height: 50px;"><i class="fab fa-discord"></i></button>
+                <label class="space"></label>
+                <button onclick="goTo('https://github.com/ammarsys/captchaapi')" type="button" class="btn btn-dark" style="width: 50px; height: 50px;"><i class="fab fa-github"></i></button>
+            </div>
+
+            <div class="righticons">
+                <button onclick="goTo('/')" type="button" class="btn btn-dark" style="width: 50px; height: 50px;"><i class="fas fa-home"></i></button>
+            </div>
+        </div>
+
+        <label class="space"></label>
+        <h1>Captcha API</h1>
+        <h6 style="color: #A9A9A9">0.0.1</h6>
+        <br><hr><br>
+
+        <div class="centerbuttons">
+            <button onclick="goTo('/api/img')" type="button" class="btn btn-secondary" style="min-width: 50%; background: #394660;">Main Endpoint</button>
+            <label class="minispace"></label>
+            <button onclick="goTo('/docs')" type="button" class="btn btn-secondary" style="min-width: 50%; background: #394660;">API Docs</button>
+            <label class="minispace"></label>
+            <button onclick="goTo('/examples')" type="button" class="btn btn-secondary" style="min-width: 50%; background: #394660;">Examples</button>
         </div>
     </div>
 </body>

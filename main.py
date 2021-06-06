@@ -1,15 +1,25 @@
-from io import BytesIO
-from flask import Flask, send_file, render_template, jsonify, redirect
+from flask import (
+    Flask,
+    send_file,
+    render_template,
+    jsonify,
+    redirect
+)
+from flask_cors import CORS
+
+
 from PIL import ImageDraw, Image, ImageFont
 import secrets
-from flask_cors import CORS
 import numpy as np
+from io import BytesIO
 import datetime
 
 
 app = Flask(__name__)
 CORS(app)
 CAPTCHAS = {}
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
+
 
 """
 function for deleting keys in a dictionary because del KEY[key] is not enough
@@ -49,8 +59,7 @@ def add_noise_lines(draw):
 
 
 """
-here we add the salt and pepper effect
-to our images using numpy
+add the salt and pepper effect to our images using numpy
 """
 def salt_and_pepper(image, prob):
     arr = np.asarray(image)
@@ -173,7 +182,7 @@ def api_captcha():
     now = datetime.datetime.utcnow()
 
     future = now + delta
-    if txt not in CAPTCHAS:
+    if _ID not in CAPTCHAS:
         CAPTCHAS[_ID] = [txt, None, future]
 
     return jsonify({'solution': txt,
@@ -186,7 +195,7 @@ basic API endpoints
 """
 @app.route('/docs')
 def docs():
-    return redirect('https://docs.google.com/document/d/1sSMj9TFUGgGhSCYjEcHGKib5wSbTCCkw9YaHbGMXkYU/edit?usp=sharing')
+    return render_template('docs.html')
 
 @app.route('/examples')
 def ex():
@@ -201,7 +210,7 @@ error handling
 """
 @app.errorhandler(404)
 def not_found(e):
-    return render_template("404pg.html")
+    return redirect("/")
 
 
 if __name__ == '__main__':

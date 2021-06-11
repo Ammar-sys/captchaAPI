@@ -18,13 +18,14 @@
 <body>
     <script>
 
+        let lightmode = true;
+
         function goTo(place) {
-            window.location.replace(`${place}`)
+            window.location.href = `${place}`
         }
 
     </script>
     <div class="main">
-
         <div class="icons">
             <div class="lefticons">
                 <button onclick="goTo('https://discord.gg/Fh5gmXQ')" type="button" class="btn btn-dark" style="width: 50px; height: 50px;"><i class="fab fa-discord"></i></button>
@@ -33,7 +34,11 @@
             </div>
 
             <div class="righticons">
+                <input type="checkbox" class="checkbox" id="check"/>
+
                 <button onclick="goTo('/')" type="button" class="btn btn-dark" style="width: 50px; height: 50px;"><i class="fas fa-home"></i></button>
+                <label class="space"></label>
+                <button onclick="switchModes()" type="button" class="btn btn-dark" style="width: 50px; height: 50px;"><i class="fas fa-sun"></i></button>
             </div>
         </div>
 

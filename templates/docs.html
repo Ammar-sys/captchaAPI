@@ -9,20 +9,22 @@
     <div class="main">
         <div>
             <h1><mark>1 - /api/img</mark></h1>
-            <h2>METHOD:<span style="color: black">&nbsp;GET</span></h2>
-            <h2>RETURN TYPE:<span style="color: black">&nbsp;JSON</span></h2>
-            <h2>CONTENT<span style="color: black">&nbsp;A captcha URL and it's solution</span></h2>
-            <h2>NOTES<span style="color: black">&nbsp;N/A</span></h2>
+            <h2>METHOD:<span style="color: darkgrey">&nbsp;GET</span></h2>
+            <h2>RETURN TYPE:<span style="color: darkgrey">&nbsp;JSON</span></h2>
+            <h2>CONTENT<span style="color: darkgrey">&nbsp;A captcha URL and it's solution</span></h2>
+            <h2>PARAMETERS:<span style="color: darkgrey">&nbsp;REQUESTS - The number of how many times the image can be accessed before it expires. Why? Some captcha solvers use human workers to read captchas, this way if you set it to once they cannot see the image, because you already rendered it. Excluding web scraping which is unlikely. Default twenty. Sample usage: ammarsysdev.pythonanywhere.com/api/img?requests=1</span></h2>
+            <h2>NOTES<span style="color: darkgrey">&nbsp;N/A</span></h2>
         </div>
 
         <br>
 
         <div>
             <h1><mark>2 - /api/cdn</mark></h1>
-            <h2>METHOD:<span style="color: black">&nbsp;GET</span></h2>
-            <h2>RETURN TYPE:<span style="color: black">&nbsp;PIL IMAGE</span></h2>
-            <h2>CONTENT<span style="color: black">&nbsp;A image. Handling it depends on your use, one way to handle it, <a href="https://codegrepper.com/code-examples/python/how+to+convert+image+file+to+url+image+in+python">example (python)</a></span></h2>
-            <h2>NOTES<span style="color: black">&nbsp;N/A</span></h2>
+            <h2>METHOD:<span style="color: darkgrey">&nbsp;GET</span></h2>
+            <h2>RETURN TYPE:<span style="color: darkgrey">&nbsp;PIL IMAGE</span></h2>
+            <h2>CONTENT:<span style="color: darkgrey">&nbsp;A image. Handling it depends on your use, one way to handle it, <a href="https://codegrepper.com/code-examples/python/how+to+convert+image+file+to+url+image+in+python">example (python)</a></span></h2>
+            <h2>PARAMETERS:<span style="color: darkgrey">&nbsp;N/A</span></h2>
+            <h2>NOTES:<span style="color: darkgrey">&nbsp;N/A</span></h2>
         </div>
     </div>
 </body>

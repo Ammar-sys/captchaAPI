@@ -23,6 +23,9 @@ CAPTCHAS = expiringdict.ExpiringDict(max_age_seconds=300, max_len=99999999)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 
+class CaptchaCnt:
+    captcha_counter = 0
+
 """
 fonts for the letters
 fonts_lower >> lowercase
@@ -41,13 +44,12 @@ fonts_upper = [
     ImageFont.truetype('./fonts/upper/BebasNeue-Regular.ttf', 53)
 ]
 
-
 """
 generate random characters
 """
-def random_char(y):
-    str1 = 'abcdefghijkmnopqrstuvwxyzABCDEFGHJKMNOPQRSTUVWXYZ'
-    return ''.join(sc.choice(str1) for _ in range(y))
+def random_char(y, module):
+    string = 'abcdefghijkmnopqrstuvwxyzABCDEFGHJKMNOPQRSTUVWXYZ'
+    return ''.join(module.choice(string) for _ in range(y))
 
 
 """
@@ -73,9 +75,9 @@ def capGen(text):
     d = noise.add_noise_lines(ImageDraw.Draw(img))
 
     for count, letter in enumerate(text):
-        cords = sc.randbelow(20)+19 + right, sc.randbelow(2)+7 + height
+        cords = sc.randbelow(20) + 19 + right, sc.randbelow(2) + 7 + height
         d.text(cords, f"{letter}", fill=white, font=corresponding_font[letter])
-        val = sc.randbelow(36)+30 + count
+        val = sc.randbelow(36) + 30 + count
         if val < 40:
             right += 20
         right += sc.randbelow(36) + 30 + count
@@ -134,21 +136,28 @@ delta, now >> datetime objects for ratelimiting
 def api_captcha():
     access = request.args.get('requests', default=10, type=int)
 
+    delta = datetime.timedelta(minutes=5)
+    now = datetime.datetime.utcnow()
+    future = now + delta
+
     if access > 20:
         return redirect('/')
 
-    txt, _ID = random_char(sc.choice((4, 6))), random_char(70)
+    txt = random_char(y=sc.choice((4, 6)),
+                      module=sc)
 
-    delta = datetime.timedelta(minutes=5)
-    now = datetime.datetime.utcnow()
+    _ID = random_char(y=10,
+                      module=random)
 
-    future = now + delta
-    if _ID not in CAPTCHAS:
-        CAPTCHAS[_ID] = [txt, None, future, 0, access]
+    _ID = str(CaptchaCnt.captcha_counter) + '.' + _ID + '.' + now.strftime('%S')[-5:]
 
+    CAPTCHAS[_ID] = [txt, None, future, 0, access]
+
+    CaptchaCnt.captcha_counter += 1
     return jsonify({'solution': txt,
                     'url': f'http://127.0.0.1:5000/api/cdn/{_ID}'
                     })
+
 
 """
 basic API endpoints
